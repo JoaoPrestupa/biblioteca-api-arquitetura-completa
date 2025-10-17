@@ -322,7 +322,7 @@ POST /api/autor
 | `GET` | `/api/livro/titulo/{titulo}` | Busca por título |
 | `GET` | `/api/livro/autor/{nomeAutor}` | Lista livros por autor |
 | `GET` | `/api/livro/emprestados` | Lista livros emprestados |
-| `POST` | `/api/livro` | Cria novo livro (com geolocalização) |
+| `POST` | `/api/livro` | Cria novo livro |
 | `PUT` | `/api/livro/{id}` | Atualiza livro |
 | `DELETE` | `/api/livro/{id}` | Deleta livro |
 
@@ -441,7 +441,6 @@ Coleta métricas da aplicação a cada **15 segundos**.
 - `jvm_memory_used_bytes`: Uso de memória JVM
 - `http_server_requests_seconds`: Latência de requisições HTTP
 - `operacoes_total`: Contador de operações por tipo
-- `operacoes_geolocalizadas_total`: Operações com geolocalização
 - `erros_total`: Contador de erros
 - `auth_login_success_total`: Logins bem-sucedidos
 - `auth_login_failure_total`: Logins falhados
@@ -492,13 +491,6 @@ histogram_quantile(0.95, rate(http_server_requests_seconds_bucket[5m]))
 - Total de registros
 - Logins bem-sucedidos vs falhados
 - Taxa de falhas de autenticação
-
-##### 3. Geomap - Criação de Livros
-- **Visualization:** Geomap
-- **Query:** `operacoes_geolocalizadas_total{tipo="criar_livro"}`
-- **Map View:**
-  - Latitude field: `latitude`
-  - Longitude field: `longitude`
 
 ### Spring Boot Actuator
 
@@ -631,3 +623,4 @@ Desenvolvido com ❤️ para o Minicurso de Spring Boot e Hibernate - FEMA 2025
 ---
 
 **⭐ Se este projeto foi útil, considere dar uma estrela no GitHub!**
+
